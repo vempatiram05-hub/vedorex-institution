@@ -39,6 +39,10 @@ Strapi gives you many possible deployment options for your project including [St
 ```
 yarn strapi deploy
 ```
+LHS quriey syntax
+/api/books?sort[0]=title:asc&filters[title][$eq]=hello&populate[author][fields][0]=firstName&populate[author][fields][1]=lastName&fields[0]=title&pagination[pageSize]=10&pagination[page]=1&status=published&locale[0]=en
+
+
 
 ## 📚 Learn more
 

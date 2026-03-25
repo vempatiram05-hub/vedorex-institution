@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_info_blocks",
+  "info": {
+    "displayName": "info-blocks"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "blue"
+      ]
+    }
+  },
+  "config": {}
+}
