@@ -11,17 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "Description": {
-      "type": "text"
-    },
-    "blocks": {
+    "sections": {
       "type": "dynamiczone",
       "components": [
-        "blocks.info-blocks",
-        "blocks.hero-section"
+        "section.hero-slider"
       ]
     }
   }

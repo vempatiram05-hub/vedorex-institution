@@ -4,7 +4,7 @@
   "info": {
     "singularName": "navbar",
     "pluralName": "navbars",
-    "displayName": "Navbar" 
+    "displayName": "Navbar"
   },
   "options": {
     "draftAndPublish": true
@@ -14,7 +14,9 @@
     "logo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "nav_links": {
       "type": "component",

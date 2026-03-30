@@ -1,31 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface BlocksHeroSection extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_hero_sections';
-  info: {
-    displayName: 'Hero Section';
-  };
-  attributes: {
-    cta: Schema.Attribute.Component<'element.link', false>;
-    heading: Schema.Attribute.Text;
-    Image: Schema.Attribute.Media<'images'>;
-    logo: Schema.Attribute.Component<'element.logo', false>;
-    theme: Schema.Attribute.Enumeration<['orange', 'white', 'Deep Blue']>;
-  };
-}
-
-export interface BlocksInfoBlocks extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_info_blocks';
-  info: {
-    displayName: 'info-blocks';
-  };
-  attributes: {
-    content: Schema.Attribute.RichText;
-    heading: Schema.Attribute.String;
-    theme: Schema.Attribute.Enumeration<['blue']>;
-  };
-}
-
 export interface ElementLink extends Struct.ComponentSchema {
   collectionName: 'components_element_links';
   info: {
@@ -48,6 +22,40 @@ export interface ElementLogo extends Struct.ComponentSchema {
   };
 }
 
+export interface FooterContactInfo extends Struct.ComponentSchema {
+  collectionName: 'components_footer_contact_infos';
+  info: {
+    displayName: 'contact_info';
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    Email: Schema.Attribute.Email;
+    phoneNumber: Schema.Attribute.String;
+  };
+}
+
+export interface FooterLink extends Struct.ComponentSchema {
+  collectionName: 'components_footer_links';
+  info: {
+    displayName: 'link';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface FooterLinkGroup extends Struct.ComponentSchema {
+  collectionName: 'components_footer_link_groups';
+  info: {
+    displayName: 'link-groups';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    link_groups: Schema.Attribute.Component<'footer.link', true>;
+  };
+}
+
 export interface NavLinkNavText extends Struct.ComponentSchema {
   collectionName: 'components_nav_link_nav_texts';
   info: {
@@ -61,14 +69,57 @@ export interface NavLinkNavText extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionHero extends Struct.ComponentSchema {
+  collectionName: 'components_section_heroes';
+  info: {
+    displayName: 'slider';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    highlighted_text: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    primary_btn_label: Schema.Attribute.String;
+    primary_btn_url: Schema.Attribute.String;
+    secondary_btn_label: Schema.Attribute.String;
+    secondary_btn_url: Schema.Attribute.String;
+    stats: Schema.Attribute.Component<'section.stats', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionHeroSlider extends Struct.ComponentSchema {
+  collectionName: 'components_section_hero_sliders';
+  info: {
+    displayName: 'banner';
+  };
+  attributes: {
+    slider: Schema.Attribute.Component<'section.hero', true>;
+  };
+}
+
+export interface SectionStats extends Struct.ComponentSchema {
+  collectionName: 'components_section_stats';
+  info: {
+    displayName: 'stats';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    number: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'blocks.hero-section': BlocksHeroSection;
-      'blocks.info-blocks': BlocksInfoBlocks;
       'element.link': ElementLink;
       'element.logo': ElementLogo;
+      'footer.contact-info': FooterContactInfo;
+      'footer.link': FooterLink;
+      'footer.link-group': FooterLinkGroup;
       'nav-link.nav-text': NavLinkNavText;
+      'section.hero': SectionHero;
+      'section.hero-slider': SectionHeroSlider;
+      'section.stats': SectionStats;
     }
   }
 }
