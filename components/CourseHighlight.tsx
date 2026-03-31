@@ -25,16 +25,18 @@ interface CourseHighlightData {
 
 export default function CourseHighlight({ data }: { data: CourseHighlightData }) {
   return (
-    <section style={{ backgroundColor: "#e5e7eb" }}>
+    <section>
       <div
         style={{
-          padding: "80px clamp(16px, 4vw, 50px)",
+          padding: "20px clamp(16px, 4vw, 50px)",
           maxWidth: "1920px",
           margin: "0 auto",
           boxSizing: "border-box",
+          backgroundColor: "#e5e7eb",
+
         }}
       >
-        <div className="row align-items-center g-5">
+        <div className="row align-items-center g-2">
 
           {/* Left Image */}
           <div className="col-lg-6">
@@ -43,7 +45,7 @@ export default function CourseHighlight({ data }: { data: CourseHighlightData })
                 src={`${STRAPI_URL}${data.image.url}`}
                 alt={data.image.alternativeText || data.title}
                 className="img-fluid rounded-4"
-                style={{ width: "100%", objectFit: "cover" }}
+                style={{ width: "80%", height: "auto", objectFit: "cover", display: "block", margin: "0 auto" }}
               />
             )}
           </div>
@@ -53,7 +55,7 @@ export default function CourseHighlight({ data }: { data: CourseHighlightData })
             {/* Tag */}
             <p
               className="fw-semibold mb-2"
-              style={{ color: "#5C44D8", fontSize: "14px" }}
+              style={{ color: "#5C44D8", fontSize: "26px", lineHeight: "1.6" }}
             >
               {data.tag}
             </p>
@@ -64,7 +66,7 @@ export default function CourseHighlight({ data }: { data: CourseHighlightData })
             </h2>
 
             {/* Description */}
-            <p className="text-secondary mb-4" style={{ fontSize: "15px", lineHeight: "1.7" }}>
+            <p className="3" style={{ fontSize: "15px", lineHeight: "1.7" }}>
               {data.description}
             </p>
 
@@ -83,8 +85,8 @@ export default function CourseHighlight({ data }: { data: CourseHighlightData })
                       <div
                         className="mx-auto mb-2 d-flex align-items-center justify-content-center rounded-3"
                         style={{
-                          width: "52px",
-                          height: "52px",
+                          width: "42px",
+                          height: "42px",
                           backgroundColor: "#f0eeff",
                         }}
                       >

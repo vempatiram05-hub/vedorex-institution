@@ -102,13 +102,44 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
               >
                 <div
                   style={{
-                    padding: "50px clamp(16px, 4vw, 50px)",
-                    minHeight: "550px",
+                    padding: "30px clamp(16px, 6vw, 50px)",
                     display: "flex",
                     alignItems: "center",
+                    position: "relative",
+                    overflow: "hidden",
                   }}
                 >
-                  <div className="row align-items-center w-100 g-4">
+                  {/* Decorative bubbles */}
+                  <div style={{
+                    position: "absolute", borderRadius: "50%",
+                    width: 320, height: 320,
+                    background: "rgba(92, 68, 216, 0.12)",
+                    top: "-80px", left: "-60px",
+                    pointerEvents: "none",
+                  }} />
+                  <div style={{
+                    position: "absolute", borderRadius: "50%",
+                    width: 200, height: 200,
+                    background: "rgba(168, 85, 247, 0.1)",
+                    top: "20px", left: "180px",
+                    pointerEvents: "none",
+                  }} />
+                  <div style={{
+                    position: "absolute", borderRadius: "50%",
+                    width: 150, height: 150,
+                    background: "rgba(92, 68, 216, 0.08)",
+                    bottom: "-40px", left: "30%",
+                    pointerEvents: "none",
+                  }} />
+                  <div style={{
+                    position: "absolute", borderRadius: "50%",
+                    width: 250, height: 250,
+                    background: "rgba(168, 85, 247, 0.07)",
+                    bottom: "-60px", right: "-40px",
+                    pointerEvents: "none",
+                  }} />
+
+                  <div className="row align-items-center w-100 g-3" style={{ position: "relative", zIndex: 1 }}>
 
                     {/* Left Content */}
                     <div className="col-lg-6">
@@ -153,15 +184,18 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
                             alt={slide.image.alternativeText || slide.title}
                             className="img-fluid rounded-4"
                             style={{
-                              maxHeight: "400px",
+                              maxHeight: "350px",
                               objectFit: "cover",
                               width: "100%",
+                              display: "block",
                             }}
                           />
                           {slide.stats.length > 0 && (
                             <div
                               className="position-absolute bottom-0 start-0 end-0 d-flex"
                               style={{
+                                background: "rgba(30, 20, 60, 0.92)",
+                                borderTop: "1px solid rgba(168, 85, 247, 0.3)",
                                 borderRadius: "0 0 16px 16px",
                                 overflow: "hidden",
                               }}
