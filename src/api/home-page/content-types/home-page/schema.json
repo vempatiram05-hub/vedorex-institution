@@ -14,7 +14,8 @@
     "sections": {
       "type": "dynamiczone",
       "components": [
-        "section.hero-slider"
+        "section.hero-slider",
+        "section.course-highlight"
       ]
     }
   }

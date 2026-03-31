@@ -69,6 +69,31 @@ export interface NavLinkNavText extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionCourseHighlight extends Struct.ComponentSchema {
+  collectionName: 'components_section_course_highlights';
+  info: {
+    displayName: 'course-highlight';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    feature: Schema.Attribute.Component<'section.feature', true>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    tag: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionFeature extends Struct.ComponentSchema {
+  collectionName: 'components_section_features';
+  info: {
+    displayName: 'feature';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    label: Schema.Attribute.String;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -117,6 +142,8 @@ declare module '@strapi/strapi' {
       'footer.link': FooterLink;
       'footer.link-group': FooterLinkGroup;
       'nav-link.nav-text': NavLinkNavText;
+      'section.course-highlight': SectionCourseHighlight;
+      'section.feature': SectionFeature;
       'section.hero': SectionHero;
       'section.hero-slider': SectionHeroSlider;
       'section.stats': SectionStats;

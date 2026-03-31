@@ -16,6 +16,16 @@ export default factories.createCoreController('api::home-page.home-page', ({ str
                 },
               },
             },
+            'section.course-highlight': {
+              populate: {
+                image: true,
+                feature: {
+                  populate: {
+                    icon: true,
+                  },
+                },
+              },
+            },
           },
         },
       } as any,
