@@ -69,6 +69,51 @@ export interface NavLinkNavText extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionCategoryCard extends Struct.ComponentSchema {
+  collectionName: 'components_section_category_cards';
+  info: {
+    displayName: 'category-card';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    stat_lable_price: Schema.Attribute.String;
+    stat_url: Schema.Attribute.String;
+  };
+}
+
+export interface SectionCourseCard extends Struct.ComponentSchema {
+  collectionName: 'components_section_course_cards';
+  info: {
+    displayName: 'course-card';
+  };
+  attributes: {
+    courese_url: Schema.Attribute.String;
+    course_btn: Schema.Attribute.String;
+    lessons: Schema.Attribute.Integer;
+    level: Schema.Attribute.Enumeration<
+      ['Beginner', 'Intermediate', 'Advanced']
+    >;
+    name: Schema.Attribute.String;
+    rating: Schema.Attribute.Integer;
+    students: Schema.Attribute.Integer;
+    thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface SectionCourseCategories extends Struct.ComponentSchema {
+  collectionName: 'components_section_course_categories';
+  info: {
+    displayName: 'course-categories';
+  };
+  attributes: {
+    CategoryCard: Schema.Attribute.Component<'section.category-card', true>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionCourseHighlight extends Struct.ComponentSchema {
   collectionName: 'components_section_course_highlights';
   info: {
@@ -83,6 +128,18 @@ export interface SectionCourseHighlight extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionCta extends Struct.ComponentSchema {
+  collectionName: 'components_section_ctas';
+  info: {
+    displayName: 'cta';
+  };
+  attributes: {
+    Button: Schema.Attribute.String;
+    ButtonUrl: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface SectionFeature extends Struct.ComponentSchema {
   collectionName: 'components_section_features';
   info: {
@@ -91,6 +148,21 @@ export interface SectionFeature extends Struct.ComponentSchema {
   attributes: {
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     label: Schema.Attribute.String;
+  };
+}
+
+export interface SectionFeatureCard extends Struct.ComponentSchema {
+  collectionName: 'components_section_feature_cards';
+  info: {
+    displayName: 'feature-card';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    duration: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link_label: Schema.Attribute.String;
+    link_url: Schema.Attribute.String;
+    name: Schema.Attribute.String;
   };
 }
 
@@ -133,6 +205,58 @@ export interface SectionStats extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionTestimonials extends Struct.ComponentSchema {
+  collectionName: 'components_section_testimonials';
+  info: {
+    displayName: 'testimonials';
+  };
+  attributes: {
+    TestimonialsCard: Schema.Attribute.Component<
+      'section.testimonials-card',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionTestimonialsCard extends Struct.ComponentSchema {
+  collectionName: 'components_section_testimonials_cards';
+  info: {
+    displayName: 'testimonials-card';
+  };
+  attributes: {
+    avatar: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    quote: Schema.Attribute.String;
+    rating: Schema.Attribute.Integer;
+    role: Schema.Attribute.String;
+  };
+}
+
+export interface SectionTopCourses extends Struct.ComponentSchema {
+  collectionName: 'components_section_top_courses';
+  info: {
+    displayName: 'top-courses';
+  };
+  attributes: {
+    coursecard: Schema.Attribute.Component<'section.course-card', true>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionWhyChooseUs extends Struct.ComponentSchema {
+  collectionName: 'components_section_why_choose_uses';
+  info: {
+    displayName: 'why-choose-us';
+  };
+  attributes: {
+    featurecard: Schema.Attribute.Component<'section.feature-card', true>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -142,11 +266,20 @@ declare module '@strapi/strapi' {
       'footer.link': FooterLink;
       'footer.link-group': FooterLinkGroup;
       'nav-link.nav-text': NavLinkNavText;
+      'section.category-card': SectionCategoryCard;
+      'section.course-card': SectionCourseCard;
+      'section.course-categories': SectionCourseCategories;
       'section.course-highlight': SectionCourseHighlight;
+      'section.cta': SectionCta;
       'section.feature': SectionFeature;
+      'section.feature-card': SectionFeatureCard;
       'section.hero': SectionHero;
       'section.hero-slider': SectionHeroSlider;
       'section.stats': SectionStats;
+      'section.testimonials': SectionTestimonials;
+      'section.testimonials-card': SectionTestimonialsCard;
+      'section.top-courses': SectionTopCourses;
+      'section.why-choose-us': SectionWhyChooseUs;
     }
   }
 }

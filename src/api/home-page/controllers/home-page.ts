@@ -26,6 +26,45 @@ export default factories.createCoreController('api::home-page.home-page', ({ str
                 },
               },
             },
+            'section.cta': {
+              populate: '*',
+            },
+            'section.course-categories': {
+              populate: {
+                CategoryCard: {
+                  populate: {
+                    icon: true,
+                  },
+                },
+              },
+            },
+            'section.testimonials': {
+              populate: {
+                TestimonialsCard: {
+                  populate: {
+                    avatar: true,
+                  },
+                },
+              },
+            },
+            'section.why-choose-us': {
+              populate: {
+                featurecard: {
+                  populate: {
+                    icon: true,
+                  },
+                },
+              },
+            },
+            'section.top-courses': {
+              populate: {
+                coursecard: {
+                  populate: {
+                    thumbnail: true,
+                  },
+                },
+              },
+            },
           },
         },
       } as any,
