@@ -47,15 +47,14 @@ export default async function Footer() {
 
   if (!footer) return null;
 
-  return (
-    <footer className="border-top">
+return (
+  <footer className="border-top" style={{ backgroundColor: "#e5e7eb" }}>
       <div
         style={{
           padding: "60px clamp(16px, 4vw, 50px)",
           margin: "0 auto",
           boxSizing: "border-box",
           maxWidth: "1920px",
-          backgroundColor: "#e5e7eb"
 
         }}
       >
