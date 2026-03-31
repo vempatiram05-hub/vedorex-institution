@@ -63,6 +63,7 @@ export default function TopCourses({ data }: { data: TopCoursesData }) {
                   backgroundColor: "#fff",
                   boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
                   transition: "transform 0.2s, box-shadow 0.2s",
+                  padding: "10px clamp(10px, 3vw, 10px)",
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
@@ -96,10 +97,10 @@ export default function TopCourses({ data }: { data: TopCoursesData }) {
                 </div>
 
                 {/* Content */}
-                <div className="p-3 d-flex flex-column flex-grow-1">
+                <div className=" d-flex flex-column grow py-2">
                   {/* Title */}
                   <h6
-                    className="fw-bold mb-3"
+                    className="fw-bold mb-2"
                     style={{
                       fontSize: 14, lineHeight: 1.4,
                       display: "-webkit-box",
@@ -113,7 +114,7 @@ export default function TopCourses({ data }: { data: TopCoursesData }) {
 
                   {/* Meta: lessons, students, level */}
                   <div
-                    className="d-flex align-items-center gap-3 mb-3"
+                    className="d-flex align-items-center gap-5 mb-3"
                     style={{ fontSize: 12, color: "#6b7280" }}
                   >
                     <span>🖥 Lesson: {card.lessons}</span>
@@ -127,7 +128,7 @@ export default function TopCourses({ data }: { data: TopCoursesData }) {
                   <div className="d-flex align-items-center justify-content-between mt-auto">
                     <Link
                       href={card.courese_url}
-                      className="btn rounded-pill px-3 py-1 text-decoration-none"
+                      className="btn rounded px-4 py-2 text-decoration-none"
                       style={{
                         background: "linear-gradient(135deg, #5C44D8, #a855f7)",
                         color: "#fff",
