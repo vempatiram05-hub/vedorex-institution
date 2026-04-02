@@ -12,7 +12,7 @@ export default function CTA({ data }: { data: CTAData }) {
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, #1a0533 0%, #3b1060 60%, #5C44D8 100%)",
+        background: "#e5e7eb",
         padding: "60px clamp(16px, 6vw, 80px)",
         position: "relative",
         overflow: "hidden",

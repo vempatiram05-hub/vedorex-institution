@@ -6,6 +6,7 @@ import Testimonials from "@/components/Testimonials";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import TopCourses from "@/components/TopCourses";
 
+
 async function getHomeData() {
   const res = await fetch("http://localhost:1337/api/home-page", {
     cache: "no-store",

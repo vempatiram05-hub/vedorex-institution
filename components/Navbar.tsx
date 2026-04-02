@@ -1,8 +1,7 @@
-"use client";
+"use client";  // keep this only for scroll effect
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";  // ← add this
 
 interface NavLink {
   id: number;
@@ -23,27 +22,10 @@ interface NavbarData {
   nav_links: NavLink[];
 }
 
-async function getNavbarData(): Promise<NavbarData> {
-  const res = await fetch("http://localhost:1337/api/navbar?populate=*", {
-    cache: "no-store",
-  });
-  const json = await res.json();
-  return json.data;
-}
-
-
-export default function Navbar() {
-  const [navbar, setNavbar] = useState<NavbarData | null>(null);
-  const [loading, setLoading] = useState(true);
+// ✅ Receive data as prop instead of fetching
+export default function Navbar({ data }: { data: NavbarData }) {
   const [scrolled, setScrolled] = useState(false);
-
-  
-
-  useEffect(() => {
-    getNavbarData()
-      .then(setNavbar)
-      .finally(() => setLoading(false));
-  }, []);
+  const STRAPI_URL = "http://localhost:1337";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -51,32 +33,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const STRAPI_URL = "http://localhost:1337";
-
-  if (loading) {
-    return (
-      <nav className="navbar navbar-expand-lg navbar-light sticky-top" 
-             style={{ backgroundColor: "#e5e7eb" }}
-             >
-
-        <div className="container px-4">
-          <span className="navbar-brand placeholder-glow">
-            <span className="placeholder col-4"></span>
-          </span>
-        </div>
-      </nav>
-    );
-  }
-
-  if (!navbar) return null;
+  if (!data) return null;
 
   return (
     <nav
-      className={`navbar navbar-expand-lg  sticky-top ${scrolled ? "shadow" : ""}`}
-      style={{
-        transition: " box-shadow 0.3s ease",
-        backgroundColor: "#e5e7eb",
-      }}
+      className={`navbar navbar-expand-lg sticky-top ${scrolled ? "shadow" : ""}`}
+      style={{ transition: "box-shadow 0.3s ease", backgroundColor: "#e5e7eb" }}
     >
       <div
         className="container-fluid"
@@ -84,15 +46,15 @@ export default function Navbar() {
           padding: "0 clamp(16px, 4vw, 50px)",
           maxWidth: "1920px",
           margin: "0 auto",
-           backgroundColor: "#e5e7eb"
+          backgroundColor: "#e5e7eb"
         }}
       >
         {/* Logo */}
         <Link href="/" className="navbar-brand">
-          {navbar.logo?.url && (
+          {data.logo?.url && (
             <img
-              src={`${STRAPI_URL}${navbar.logo.url}`}
-              alt={navbar.logo.alternativeText || "Logo"}
+              src={`${STRAPI_URL}${data.logo.url}`}
+              alt={data.logo.alternativeText || "Logo"}
               style={{ width: "150px", height: "40px", objectFit: "contain" }}
             />
           )}
@@ -114,7 +76,7 @@ export default function Navbar() {
         {/* Nav Links */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto align-items-center" style={{ gap: "8px" }}>
-            {navbar.nav_links.map((link) => (
+            {data.nav_links.map((link) => (
               <li className="nav-item" key={link.id}>
                 {link.isButton ? (
                   <Link

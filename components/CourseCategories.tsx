@@ -36,12 +36,12 @@ export default function CourseCategories({ data }: { data: CourseCategoriesData 
           maxWidth: "1920px",
           margin: "0 auto",
           boxSizing: "border-box",
-          backgroundColor: "#e5e7eb",
+          backgroundColor: "#d1d5db",
 
         }}
       >
         {/* Header */}
-        <div className="text-center mb-5">
+        <div className=" mb-5">
           <h2 className="fw-bold mb-2" style={{ color: "#5C44D8" }}>
             {data.title}
           </h2>
@@ -91,8 +91,8 @@ export default function CourseCategories({ data }: { data: CourseCategoriesData 
                   href={card.stat_url}
                   className="d-flex align-items-center justify-content-between rounded-3 px-3 py-2 text-decoration-none"
                   style={{
-                    backgroundColor: "#f3f4f6",
-                    color: "#374151",
+                    backgroundColor: "#d1d5db",
+                    color: "#5C44D8",
                     fontSize: 14,
                     border: "1px solid #e5e7eb",
                   }}

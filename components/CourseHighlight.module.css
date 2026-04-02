@@ -1,0 +1,145 @@
+.section {
+  padding: 20px clamp(16px, 4vw, 50px);
+  max-width: 1920px;
+  margin: 0 auto;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  background-color: #d1d5db;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;    /* ✅ everything aligns to bottom */
+  gap: 32px;
+}
+
+/* Left Image */
+.imageCol {
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  align-items: flex-end;    /* ✅ image sits at bottom */
+}
+
+.imageCol img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px ;  /* ✅ only top corners rounded, flush at bottom */
+  display: block;
+  height: 300px; /* ✅ fixed height for consistent layout, can adjust as needed */
+}
+
+/* Right Content */
+.contentCol {
+  flex: 0 0 calc(50% - 32px);
+  max-width: calc(50% - 32px);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 24px;     /* ✅ content has breathing room at bottom */
+}
+
+.tag {
+  color: #5C44D8;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Features Grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.featureCard {
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+}
+
+.iconWrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #9333ea, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px auto;
+}
+
+.iconWrap img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.featureLabel {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ── Tablet (max 992px) ── */
+@media (max-width: 992px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageCol,
+  .contentCol {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .imageCol {
+    align-items: center;          /* ✅ reset on tablet */
+  }
+
+  .imageCol img {
+    aspect-ratio: 16/9;
+    border-radius: 16px;          /* ✅ all corners rounded on tablet */
+  }
+
+  .tag {
+    font-size: 22px;
+  }
+}
+
+/* ── Mobile (max 576px) ── */
+@media (max-width: 576px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tag {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}

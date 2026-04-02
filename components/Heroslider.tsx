@@ -70,7 +70,7 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
           width: "100%",
           overflow: "hidden",
           boxSizing: "border-box",
-          backgroundColor: "#e5e7eb",
+          backgroundColor: "#cbcbcb",
         }}
       >
         <div
@@ -89,6 +89,15 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
                 data-bs-slide-to={index}
                 className={index === 0 ? "active" : ""}
                 aria-current={index === 0 ? "true" : undefined}
+                style={{
+                  width: "12px",          // ✅ equal width & height = circle
+                  height: "12px",
+                  borderRadius: "50%",    // ✅ makes it round
+                  backgroundColor: "#fff",
+                  border: "none",
+                  opacity: index === 0 ? "1" : "0.5",  // active = full, inactive = faded
+                  transition: "opacity 0.3s ease",
+                }}
               />
             ))}
           </div>
@@ -231,10 +240,32 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
           </div>
 
           {/* Controls */}
-          <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "12px",
+              transform: "translateY(-50%)",
+              width: "48px",
+              height: "48px",
+              backgroundColor: "rgba(0,0,0,0.4)",
+              borderRadius: "50%",
+
+            }}>
             <span className="carousel-control-prev-icon" />
           </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"
+            style={{
+              position: "absolute",
+              top: "50%",
+              right: "12px",
+              left: "auto",
+              transform: "translateY(-50%)",
+              width: "48px",
+              height: "48px",
+              backgroundColor: "rgba(0,0,0,0.4)",
+              borderRadius: "50%",
+            }}>
             <span className="carousel-control-next-icon" />
           </button>
 

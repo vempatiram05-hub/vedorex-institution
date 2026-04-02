@@ -32,12 +32,12 @@ export default function WhyChooseUs({ data }: { data: WhyChooseUsData }) {
           width: "100%",
           overflow: "hidden",
           boxSizing: "border-box",
-          backgroundColor: "#e5e7eb",
+          backgroundColor: "#d1d5db",
           padding: "20px clamp(16px, 4vw, 50px)",
         }}
       >
         {/* Header */}
-        <div className="text-center mb-5">
+        <div className=" mb-5">
           <h2 className="fw-bold mb-2" style={{ color: "#5C44D8" }}>{data.title}</h2>
           <p className="text-secondary mb-0">{data.subtitle}</p>
         </div>
@@ -47,7 +47,7 @@ export default function WhyChooseUs({ data }: { data: WhyChooseUsData }) {
           {data.featurecard.map((card) => (
             <div key={card.id} className="col-sm-6 col-lg-3">
               <div
-                className="h-100 p-4 rounded-4 d-flex flex-column"
+                className="h-100 p-4 rounded-4 d-flex flex-column justify-content-center align-items-center text-center"
                 style={{
                   backgroundColor: "#fff",
                   boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
@@ -99,17 +99,26 @@ export default function WhyChooseUs({ data }: { data: WhyChooseUsData }) {
                 </p>
 
                 {/* Footer: duration + link */}
-                <div className="d-flex align-items-center justify-content-between mt-auto">
-                  <span style={{ fontSize: 13, color: "#5C44D8", fontWeight: 600 }}>
-                    {card.duration}
-                  </span>
-                  <Link
-                    href={card.link_url}
-                    className="text-decoration-none d-flex align-items-center gap-1"
-                    style={{ fontSize: 13, color: "#5C44D8", fontWeight: 600 }}
-                  >
-                    {card.link_label} <span>→</span>
-                  </Link>
+                <div className="d-flex flex-row gap-5">
+
+                  {/* Duration - separate div */}
+                  <div>
+                    <span style={{ fontSize: 13, color: "#5C44D8", fontWeight: 600 }}>
+                      {card.duration}
+                    </span>
+                  </div>
+
+                  {/* Link - separate div */}
+                  <div>
+                    <Link
+                      href={card.link_url}
+                      className="text-decoration-none d-flex align-items-center gap-1"
+                      style={{ fontSize: 13, color: "#5C44D8", fontWeight: 600 }}
+                    >
+                      {card.link_label} <span>→</span>
+                    </Link>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -117,6 +126,6 @@ export default function WhyChooseUs({ data }: { data: WhyChooseUsData }) {
         </div>
       </div>
 
-    </section>
+    </section >
   );
 }
