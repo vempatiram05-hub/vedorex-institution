@@ -1,5 +1,291 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutChooseCard extends Struct.ComponentSchema {
+  collectionName: 'components_about_choose_cards';
+  info: {
+    displayName: 'Choose_Card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link_text: Schema.Attribute.String;
+    link_url: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutEdtechSection extends Struct.ComponentSchema {
+  collectionName: 'components_about_edtech_sections';
+  info: {
+    displayName: 'Edtech Section';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    features: Schema.Attribute.Component<'about.feature-item', true>;
+    heading: Schema.Attribute.Text;
+    section_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    tag_label: Schema.Attribute.String;
+  };
+}
+
+export interface AboutFeatureItem extends Struct.ComponentSchema {
+  collectionName: 'components_about_feature_items';
+  info: {
+    displayName: 'Feature Item';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_about_hero_sections';
+  info: {
+    displayName: 'hero-section';
+  };
+  attributes: {
+    background_Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    button_link: Schema.Attribute.String;
+    button_text: Schema.Attribute.String;
+    Description: Schema.Attribute.Text;
+    OverlayColor: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutItemsStats extends Struct.ComponentSchema {
+  collectionName: 'components_about_items_stats';
+  info: {
+    displayName: 'Items_stats';
+  };
+  attributes: {};
+}
+
+export interface AboutMentorItem extends Struct.ComponentSchema {
+  collectionName: 'components_about_mentor_items';
+  info: {
+    displayName: 'Mentor Item';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    role: Schema.Attribute.String;
+  };
+}
+
+export interface AboutMentorsSection extends Struct.ComponentSchema {
+  collectionName: 'components_about_mentors_sections';
+  info: {
+    displayName: 'Mentors Section';
+  };
+  attributes: {
+    button_link: Schema.Attribute.String;
+    button_text: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.Text;
+    main_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    mentors: Schema.Attribute.Component<'about.mentor-item', true>;
+  };
+}
+
+export interface AboutStatItem extends Struct.ComponentSchema {
+  collectionName: 'components_about_stat_items';
+  info: {
+    displayName: 'Stat Item';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    label: Schema.Attribute.String;
+    number: Schema.Attribute.String;
+  };
+}
+
+export interface AboutStatsItem extends Struct.ComponentSchema {
+  collectionName: 'components_about_stats_items';
+  info: {
+    displayName: 'stats_item';
+  };
+  attributes: {
+    lable: Schema.Attribute.String;
+    number: Schema.Attribute.String;
+  };
+}
+
+export interface AboutStatsSection extends Struct.ComponentSchema {
+  collectionName: 'components_about_stats_sections';
+  info: {
+    displayName: 'Stats Section';
+  };
+  attributes: {
+    heading: Schema.Attribute.Text;
+    items: Schema.Attribute.Component<'about.stats-item', true>;
+    stats: Schema.Attribute.Component<'about.stat-item', true>;
+    tag_label: Schema.Attribute.String;
+  };
+}
+
+export interface AboutWhyChooseUs extends Struct.ComponentSchema {
+  collectionName: 'components_about_why_chooseuses';
+  info: {
+    displayName: 'Why_ChooseUs';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'about.choose-card', true>;
+    description: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface ContactContactCard extends Struct.ComponentSchema {
+  collectionName: 'components_contact_contact_cards';
+  info: {
+    displayName: 'ContactCard';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    lines: Schema.Attribute.Text;
+    tag_label: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactContactForm extends Struct.ComponentSchema {
+  collectionName: 'components_contact_contact_forms';
+  info: {
+    displayName: 'ContactForm';
+  };
+  attributes: {
+    button_text: Schema.Attribute.String;
+    emailaddress_placeholder: Schema.Attribute.String;
+    Firstname_placeholder: Schema.Attribute.String;
+    heading: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    lastname_placeholder: Schema.Attribute.String;
+    subject_placeholder: Schema.Attribute.String;
+    tag_label: Schema.Attribute.String;
+    your_message: Schema.Attribute.String;
+  };
+}
+
+export interface ContactContactInfo extends Struct.ComponentSchema {
+  collectionName: 'components_contact_contact_infos';
+  info: {
+    displayName: 'ContactInfo';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'contact.contact-card', true>;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+    subheading: Schema.Attribute.String;
+  };
+}
+
+export interface ContactHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_contact_hero_sections';
+  info: {
+    displayName: 'Hero_section';
+  };
+  attributes: {
+    background_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    heading: Schema.Attribute.String;
+    overlay_Color: Schema.Attribute.String;
+    subheading: Schema.Attribute.String;
+  };
+}
+
+export interface ContactMapSection extends Struct.ComponentSchema {
+  collectionName: 'components_contact_map_sections';
+  info: {
+    displayName: 'Map_Section';
+  };
+  attributes: {
+    background_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    heading: Schema.Attribute.String;
+    map_url: Schema.Attribute.Text;
+  };
+}
+
+export interface CoursesCourseCard extends Struct.ComponentSchema {
+  collectionName: 'components_courses_course_cards';
+  info: {
+    displayName: 'Course_Card';
+  };
+  attributes: {
+    badge_text: Schema.Attribute.String;
+    badgecolor: Schema.Attribute.String;
+    buttontext: Schema.Attribute.String;
+    category: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    is_featured: Schema.Attribute.Boolean;
+    rating: Schema.Attribute.String;
+    sessions: Schema.Attribute.String;
+    students: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    topics: Schema.Attribute.Text;
+  };
+}
+
+export interface CoursesCourseCrds extends Struct.ComponentSchema {
+  collectionName: 'components_courses_course_crds';
+  info: {
+    displayName: 'Course_crds';
+  };
+  attributes: {
+    courses: Schema.Attribute.Component<'courses.course-card', true>;
+  };
+}
+
+export interface CoursesHeroBanner extends Struct.ComponentSchema {
+  collectionName: 'components_courses_hero_banners';
+  info: {
+    displayName: 'Hero_Banner';
+  };
+  attributes: {};
+}
+
+export interface CoursesLearningPath extends Struct.ComponentSchema {
+  collectionName: 'components_courses_learning_paths';
+  info: {
+    displayName: 'Learning_Path';
+  };
+  attributes: {
+    steps: Schema.Attribute.Component<'courses.new-path-step', true>;
+    tag_label: Schema.Attribute.String;
+  };
+}
+
+export interface CoursesNewPathStep extends Struct.ComponentSchema {
+  collectionName: 'components_courses_new_path_steps';
+  info: {
+    displayName: ' new _PathStep';
+  };
+  attributes: {
+    is_active: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CoursesStatItem extends Struct.ComponentSchema {
+  collectionName: 'components_courses_stat_items';
+  info: {
+    displayName: 'Stat_Item';
+  };
+  attributes: {};
+}
+
 export interface ElementLink extends Struct.ComponentSchema {
   collectionName: 'components_element_links';
   info: {
@@ -66,6 +352,16 @@ export interface NavLinkNavText extends Struct.ComponentSchema {
     isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PathRoutemap extends Struct.ComponentSchema {
+  collectionName: 'components_path_routemaps';
+  info: {
+    displayName: 'routemap';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
   };
 }
 
@@ -194,6 +490,17 @@ export interface SectionHeroSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionLearningpath extends Struct.ComponentSchema {
+  collectionName: 'components_section_learningpaths';
+  info: {
+    displayName: 'learningpath';
+  };
+  attributes: {
+    routepath: Schema.Attribute.Component<'path.routemap', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionStats extends Struct.ComponentSchema {
   collectionName: 'components_section_stats';
   info: {
@@ -260,12 +567,35 @@ export interface SectionWhyChooseUs extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'about.choose-card': AboutChooseCard;
+      'about.edtech-section': AboutEdtechSection;
+      'about.feature-item': AboutFeatureItem;
+      'about.hero-section': AboutHeroSection;
+      'about.items-stats': AboutItemsStats;
+      'about.mentor-item': AboutMentorItem;
+      'about.mentors-section': AboutMentorsSection;
+      'about.stat-item': AboutStatItem;
+      'about.stats-item': AboutStatsItem;
+      'about.stats-section': AboutStatsSection;
+      'about.why-choose-us': AboutWhyChooseUs;
+      'contact.contact-card': ContactContactCard;
+      'contact.contact-form': ContactContactForm;
+      'contact.contact-info': ContactContactInfo;
+      'contact.hero-section': ContactHeroSection;
+      'contact.map-section': ContactMapSection;
+      'courses.course-card': CoursesCourseCard;
+      'courses.course-crds': CoursesCourseCrds;
+      'courses.hero-banner': CoursesHeroBanner;
+      'courses.learning-path': CoursesLearningPath;
+      'courses.new-path-step': CoursesNewPathStep;
+      'courses.stat-item': CoursesStatItem;
       'element.link': ElementLink;
       'element.logo': ElementLogo;
       'footer.contact-info': FooterContactInfo;
       'footer.link': FooterLink;
       'footer.link-group': FooterLinkGroup;
       'nav-link.nav-text': NavLinkNavText;
+      'path.routemap': PathRoutemap;
       'section.category-card': SectionCategoryCard;
       'section.course-card': SectionCourseCard;
       'section.course-categories': SectionCourseCategories;
@@ -275,6 +605,7 @@ declare module '@strapi/strapi' {
       'section.feature-card': SectionFeatureCard;
       'section.hero': SectionHero;
       'section.hero-slider': SectionHeroSlider;
+      'section.learningpath': SectionLearningpath;
       'section.stats': SectionStats;
       'section.testimonials': SectionTestimonials;
       'section.testimonials-card': SectionTestimonialsCard;
