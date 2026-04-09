@@ -33,7 +33,7 @@ export default function Footer({ footerData }: { footerData: FooterData }) {
   if (!footerData) return null;
 
   const { description, copyright, logo, link_group } = footerData;
-  const logoUrl = logo?.url ? ${API_URL}${logo.url} : null;
+  const logoUrl = logo?.url ? `${API_URL}${logo.url}` : null;
 
   console.log("Logo URL:", logoUrl);
 
