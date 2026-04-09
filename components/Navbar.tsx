@@ -43,6 +43,7 @@ export default function Navbar({ data }: { data: NavbarData }) {
       "/home-page": "/",
       "/about-us": "/about",
       "/contact-us": "/contact",
+      "/courses": "/CoursesPage",
     };
 
     return routeMap[clean] || clean;
@@ -105,7 +106,7 @@ export default function Navbar({ data }: { data: NavbarData }) {
                       href={link.url ? normalizeUrl(link.url) : "#"}
                       className="btn rounded-pill text-white px-4 py-2"
                       style={{
-          background: "linear-gradient(135deg, #5C44D8, #a855f7)",
+                        background: "linear-gradient(135deg, #5C44D8, #a855f7)",
                         border: "none",
                       }}
                     >
