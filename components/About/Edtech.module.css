@@ -1,0 +1,143 @@
+.edtechSection {
+  background: #eef1f8;
+}
+
+/* LEFT SIDE */
+.imageWrapper {
+  position: relative;
+}
+
+.mainImage {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+/* Badge */
+.badgeBox {
+  position: absolute;
+  top: 20px;
+  left: -5px;
+  background: #1a3db5;
+  min-width: 115px;
+  z-index: 10;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.badgeNumber {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.badgeText {
+  font-size: 0.7rem;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+/* RIGHT SIDE */
+.tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: #2952e3;
+}
+
+.heading {
+  font-family: "Manrope", sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: #0d1b3e;
+  white-space: pre-line;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* Features */
+.iconBox {
+  width: 48px;
+  height: 48px;
+  background: #dde4f8;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.featureTitle {
+  font-size: 0.97rem;
+  color: #0d1b3e;
+  font-weight: bold;
+}
+
+.featureDesc {
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 768px) {
+ .mainImage {
+    height: 400px;        /* ✅ increase image height */
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .imageWrapper {
+    margin-bottom: 20px;  /* ✅ gap between image and text */
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  /* ✅ Make both columns full width and equal */
+  .edtechSection .row {
+    flex-direction: column;
+  }
+}
+/* Mobile (375px) */
+@media (max-width: 375px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .badgeBox {
+    min-width: 90px;
+    padding: 8px;
+  }
+
+  .badgeNumber {
+    font-size: 1.4rem;
+  }
+}
+
+/* Small Mobile (320px) */
+@media (max-width: 320px) {
+  .heading {
+    font-size: 1.3rem;
+  }
+
+  .featureTitle {
+    font-size: 0.9rem;
+  }
+
+  .featureDesc {
+    font-size: 0.8rem;
+  }
+}

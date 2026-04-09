@@ -27,7 +27,11 @@ interface CourseCategoriesData {
   CategoryCard: CategoryCard[];
 }
 
-export default function CourseCategories({ data }: { data: CourseCategoriesData }) {
+export default function CourseCategories({
+  data,
+}: {
+  data: CourseCategoriesData;
+}) {
   return (
     <section>
       <div
@@ -37,7 +41,6 @@ export default function CourseCategories({ data }: { data: CourseCategoriesData 
           margin: "0 auto",
           boxSizing: "border-box",
           backgroundColor: "#d1d5db",
-
         }}
       >
         {/* Header */}
@@ -54,7 +57,9 @@ export default function CourseCategories({ data }: { data: CourseCategoriesData 
             <div key={card.id} className="col-sm-6 col-lg-3">
               <div
                 className="h-100 p-4 rounded-4 d-flex flex-column"
-                style={{ backgroundColor: "#fff" }}
+                style={{ backgroundColor: "#fff",  }}
+              
+                 
               >
                 {/* Icon */}
                 <div
@@ -66,14 +71,15 @@ export default function CourseCategories({ data }: { data: CourseCategoriesData 
                     flexShrink: 0,
                   }}
                 >
-                  <Image
-                    src={`${STRAPI_URL}${card.icon.url}`}
-                    alt={card.icon.alternativeText || card.name}
-                    width={28}
-                    height={28}
-                    style={{ objectFit: "contain", filter: "brightness(0) invert(1)" }}
-                  />
-                </div>
+<img
+  src={
+    card.icon?.url
+      ? `${STRAPI_URL}${card.icon.url}`
+      : "https://img.icons8.com/pastel-glyph/64/FFFFFF/code--v1.png"
+  }
+  width={30}
+  height={30}
+/>             </div>
 
                 {/* Name */}
                 <h5 className="fw-bold mb-2">{card.name}</h5>

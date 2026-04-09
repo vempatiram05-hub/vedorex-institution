@@ -35,7 +35,7 @@ export default function CTA({ data }: { data: CTAData }) {
         className="fw-bold mb-4"
         style={{
           fontSize: "clamp(24px, 3.5vw, 42px)",
-          color: "#fff",
+          color: "#A855F7",
           position: "relative",
         }}
       >

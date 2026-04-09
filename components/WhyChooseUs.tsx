@@ -33,19 +33,27 @@ export default function WhyChooseUs({ data }: { data: WhyChooseUsData }) {
           overflow: "hidden",
           boxSizing: "border-box",
           backgroundColor: "#d1d5db",
-          padding: "20px clamp(16px, 4vw, 50px)",
+          padding: "40px clamp(16px, 4vw, 50px)",
         }}
       >
         {/* Header */}
-        <div className=" mb-5">
+        <div className="mb-5">
           <h2 className="fw-bold mb-2" style={{ color: "#5C44D8" }}>{data.title}</h2>
           <p className="text-secondary mb-0">{data.subtitle}</p>
         </div>
 
-        {/* Cards */}
+        {/* Cards Grid */}
         <div className="row g-4 justify-content-center">
           {data.featurecard.map((card) => (
-            <div key={card.id} className="col-sm-6 col-lg-3">
+            <div
+              key={card.id}
+              // ✅ Responsive breakpoints:
+              // 320,375,425 → 1 column (col-12)
+              // 768         → 2 columns (col-sm-6)
+              // 1024        → 2 columns (col-md-6)
+              // 1280+       → 4 columns (col-lg-3)
+className="col-12 col-sm-6 col-md-6 col-xl-3"
+            >
               <div
                 className="h-100 p-4 rounded-4 d-flex flex-column justify-content-center align-items-center text-center"
                 style={{
@@ -75,8 +83,8 @@ export default function WhyChooseUs({ data }: { data: WhyChooseUsData }) {
                     <img
                       src={`${STRAPI_URL}${card.icon.url}`}
                       alt={card.icon.alternativeText || card.name}
-                      width={30}
-                      height={30}
+                      width={40}
+                      height={40}
                       style={{
                         objectFit: "contain",
                         filter: "brightness(0) invert(1)",
@@ -99,16 +107,12 @@ export default function WhyChooseUs({ data }: { data: WhyChooseUsData }) {
                 </p>
 
                 {/* Footer: duration + link */}
-                <div className="d-flex flex-row gap-5">
-
-                  {/* Duration - separate div */}
+                <div className="d-flex flex-row gap-5     gap: 8rem !important;">
                   <div>
                     <span style={{ fontSize: 13, color: "#5C44D8", fontWeight: 600 }}>
                       {card.duration}
                     </span>
                   </div>
-
-                  {/* Link - separate div */}
                   <div>
                     <Link
                       href={card.link_url}
@@ -118,14 +122,13 @@ export default function WhyChooseUs({ data }: { data: WhyChooseUsData }) {
                       {card.link_label} <span>→</span>
                     </Link>
                   </div>
-
                 </div>
+
               </div>
             </div>
           ))}
         </div>
       </div>
-
-    </section >
+    </section>
   );
 }

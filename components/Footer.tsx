@@ -1,130 +1,77 @@
-import Link from "next/link";
+import styles from "./Footer.module.css";
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
-interface FooterLink {
-  id: number;
-  label: string;
-  url: string | null;
-}
+export default function Footer({ data }: any) {
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.footerContainer}>
 
-interface LinkGroup {
-  id: number;
-  label: string;
-  link_groups: FooterLink[];
-}
+        {/* ✅ Row wrapper */}
+        <div className="row">
 
-interface ContactInfo {
-  address: string;
-  phoneNumber: string;
-  Email: string;
-}
-
-interface Logo {
-  url: string;
-  alternativeText: string | null;
-}
-
-interface FooterData {
-  logo: Logo;
-  description: string;
-  copyright: string;
-  link_group: LinkGroup[];
-  ContactInfo: ContactInfo;
-}
-
-async function getFooterData(): Promise<FooterData> {
-  const res = await fetch(
-    "http://localhost:1337/api/footer?populate[0]=logo&populate[1]=link_group.link_groups&populate[2]=ContactInfo",
-    { cache: "no-store" }
-  );
-  const json = await res.json();
-  return json.data;
-}
-
-const STRAPI_URL = "http://localhost:1337";
-
-export default async function Footer() {
-  const footer = await getFooterData();
-
-  if (!footer) return null;
-
-return (
-  <footer className="border-top" style={{ backgroundColor: "#cbcbcb" }}>
-      <div
-        style={{
-          padding: "60px clamp(16px, 4vw, 50px)",
-          margin: "0 auto",
-          boxSizing: "border-box",
-          maxWidth: "1920px",
-
-        }}
-      >
-<div className="row g-4 justify-content-between">
-          
-          <div className="col-lg-4 col-md-6">
-            {footer.logo?.url && (
-              <img
-                src={`${STRAPI_URL}${footer.logo.url}`}
-                alt={footer.logo.alternativeText || "Logo"}
-                style={{ width: "130px", objectFit: "contain" }}
-                className="mb-3"
-              />
+          {/* Column 1 */}
+          <div className="col-12 col-md-3 mb-4 mb-md-0 footerCol">
+            {data?.logo?.url && (
+             <img
+  src={`${STRAPI_URL}${data.logo.url}`}
+  alt={data?.logo?.alternativeText || "Logo"}
+  className="img-fluid"
+  style={{
+    maxWidth: "150px",
+    height: "70px",
+    objectFit: "contain",
+  }}
+/>
             )}
-            <p className="text-secondary" style={{ fontSize: "14px", lineHeight: "1.7" }}>
-              {footer.description}
+
+            <p className={styles.description}>
+              We provide high quality services and solutions for your business.
             </p>
           </div>
 
-          {/* Link Groups */}
-          {footer.link_group.map((group) => (
-            <div className="col-lg-2 col-md-6" key={group.id}>
-              <h6 className="fw-semibold mb-3">{group.label}</h6>
-              <ul className="list-unstyled">
-                {group.link_groups.map((link) => (
-                  <li key={link.id} className="mb-2">
-                    <Link
-                      href={link.url || "#"}
-                      className="text-secondary text-decoration-none"
-                      style={{ fontSize: "14px" }}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Column 2 */}
+          <div className="col-12 col-md-3 footerCol">
+            <h6 className={styles.heading}>Quick Links</h6>
+            <a href="#" className={styles.link}>Home</a>
+            <a href="#" className={styles.link}>About</a>
+            <a href="#" className={styles.link}>Courses</a>
+            <a href="#" className={styles.link}>Contact</a>
+          </div>
 
-          {/* Contact Info */}
-          <div className="col-lg-3 col-md-6">
-            <h6 className="fw-semibold mb-3">Contact Info</h6>
-            <ul className="list-unstyled">
-              <li className="d-flex align-items-start gap-2 mb-2">
-                <span style={{ color: "#5C44D8" }}>📍</span>
-                <span className="text-secondary" style={{ fontSize: "14px" }}>
-                  {footer.ContactInfo.address}
-                </span>
-              </li>
-              <li className="d-flex align-items-center gap-2 mb-2">
-                <span style={{ color: "#5C44D8" }}>📞</span>
-                <span className="text-secondary" style={{ fontSize: "14px" }}>
-                  {footer.ContactInfo.phoneNumber}
-                </span>
-              </li>
-              <li className="d-flex align-items-center gap-2">
-                <span style={{ color: "#5C44D8" }}>✉️</span>
-                <span className="text-secondary" style={{ fontSize: "14px" }}>
-                  {footer.ContactInfo.Email}
-                </span>
-              </li>
-            </ul>
+          {/* Column 3 */}
+          <div className="col-12 col-md-3 footerCol">
+            <h6 className={styles.heading}>Services</h6>
+            <a href="#" className={styles.link}>Web Development</a>
+            <a href="#" className={styles.link}>UI/UX Design</a>
+            <a href="#" className={styles.link}>Marketing</a>
+          </div>
+
+          {/* Column 4 */}
+          <div className="col-12 col-md-3 footerCol">
+            <h6 className={styles.heading}>Contact</h6>
+
+            <div className={styles.contactItem}>
+              <span className={styles.icon}>📍</span>
+              <span className={styles.text}>Hyderabad, India</span>
+            </div>
+
+            <div className={styles.contactItem}>
+              <span className={styles.icon}>📞</span>
+              <span className={styles.text}>+91 9876543210</span>
+            </div>
+
+            <div className={styles.contactItem}>
+              <span className={styles.icon}>✉️</span>
+              <span className={styles.text}>info@email.com</span>
+            </div>
           </div>
 
         </div>
 
-        {/* Divider + Copyright */}
-        <hr className="mt-4" />
-        <p className="text-center text-secondary mb-0" style={{ fontSize: "13px" }}>
-          {footer.copyright}
+        <hr className={styles.divider} />
+
+        <p className={styles.copy}>
+          © 2026 Your Company. All rights reserved.
         </p>
 
       </div>

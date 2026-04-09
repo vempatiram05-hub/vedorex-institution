@@ -1,0 +1,174 @@
+.mentorsSection {
+  background-color: #f4f4f8;
+}
+
+/* ===== TEXT ===== */
+.heading {
+  font-size: clamp(24px, 3vw, 40px);
+  line-height: 1.2;
+  color: #1a1a2e;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 15px;
+}
+
+/* ===== CARD ===== */
+.card {
+  width: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #E5E7EB;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* IMAGE */
+.cardImg {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cardImg {
+  transform: scale(1.08);
+}
+
+/* PLACEHOLDER */
+.placeholder {
+  width: 100%;
+  height: 100px;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* NAME */
+.cardName {
+  text-align: center;
+  padding: 8px 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* BUTTON */
+.btnCustom {
+  background: linear-gradient(135deg, #5C44D8, #a855f7);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.btnCustom:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* RIGHT IMAGE */
+.mainImage {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+/* FALLBACK */
+.noImage {
+  width: 100%;
+  height: 420px;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet 768px */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 26px;
+  }
+
+  .mainImage {
+    width: 100%;
+    height: 320px;
+  }
+
+  .noImage {
+    height: 320px;
+  }
+
+  .card {
+    width: 80px;   /* 👈 120px -> 80px */
+  }
+
+  /* .cardImg {
+    height: 70px;  /* 👈 100px -> 70px */
+  } 
+
+  .cardName {
+    font-size: 10px;
+  }
+
+
+/* Mobile 375px */
+@media (max-width: 375px) {
+  .heading {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .mainImage {
+    width: 100%;
+    height: 220px;
+  }
+
+  .noImage {
+    height: 220px;
+  }
+
+  .card {
+    width: 45%;
+  }
+}
+
+/* Small Mobile 320px */
+@media (max-width: 320px) {
+  .heading {
+    font-size: 20px;
+  }
+
+  .mainImage {
+    height: 180px;
+  }
+
+  .noImage {
+    height: 180px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .cardName {
+    font-size: 10px;
+  }
+}

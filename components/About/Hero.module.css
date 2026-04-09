@@ -1,0 +1,92 @@
+.heroSection {
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 60px 20px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.heroContainer {
+  position: relative;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.heroDesc {
+  margin-top: 16px;
+  font-size: 18px;
+}
+
+.heroBtn {
+  margin-top: 24px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+/* ✅ Tablet (768px) */
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 300px;
+    padding: 40px 15px;
+  }
+
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .heroDesc {
+    font-size: 15px;
+  }
+
+  .heroBtn {
+    font-size: 14px;
+    padding: 8px 18px;
+  }
+}
+
+/* ✅ Mobile (375px) */
+@media (max-width: 375px) {
+  .heroTitle {
+    font-size: 24px;
+  }
+
+  .heroDesc {
+    font-size: 14px;
+  }
+
+  .heroBtn {
+    width: 100%;
+    font-size: 13px;
+  }
+}
+
+/* ✅ Small Mobile (320px) */
+@media (max-width: 320px) {
+  .heroTitle {
+    font-size: 20px;
+  }
+
+  .heroDesc {
+    font-size: 13px;
+  }
+
+  .heroBtn {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px;
+  }
+}

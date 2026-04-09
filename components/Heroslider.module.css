@@ -1,0 +1,295 @@
+ 
+/* ===== WRAPPER ===== */
+.wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #cbcbcb;
+}
+
+/* ===== SLIDE INNER ===== */
+.slideInner {
+  padding: 30px clamp(16px, 6vw, 50px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== DECORATIVE BUBBLES ===== */
+.bubble1 {
+  position: absolute;
+  border-radius: 50%;
+  width: 320px;
+  height: 320px;
+  background: rgba(92, 68, 216, 0.12);
+  top: -80px;
+  left: -60px;
+  pointer-events: none;
+}
+
+.bubble2 {
+  position: absolute;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background: rgba(168, 85, 247, 0.1);
+  top: 20px;
+  left: 180px;
+  pointer-events: none;
+}
+
+.bubble3 {
+  position: absolute;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background: rgba(92, 68, 216, 0.08);
+  bottom: -40px;
+  left: 30%;
+  pointer-events: none;
+}
+
+.bubble4 {
+  position: absolute;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  background: rgba(168, 85, 247, 0.07);
+  bottom: -60px;
+  right: -40px;
+  pointer-events: none;
+}
+
+/* ===== ROW ===== */
+.rowContent {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== HEADING ===== */
+.heading {
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.2;
+}
+
+.highlightText {
+  color: #5c44d8;
+}
+
+/* ===== DESCRIPTION ===== */
+.description {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #1f2937;
+}
+
+/* ===== BUTTONS ===== */
+.primaryBtn {
+  background: linear-gradient(135deg, #5c44d8, #a855f7);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 24px;
+  color: #fff;
+}
+
+.primaryBtn:hover {
+  opacity: 0.9;
+  color: #fff;
+}
+
+.secondaryBtn {
+  border: 2px solid #9333ea;
+  color: #000;
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 10px 24px;
+}
+
+.secondaryBtn:hover {
+  background-color: #9333ea;
+  color: #fff;
+}
+
+/* ===== IMAGE ===== */
+.heroImage {
+  max-height: 350px;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+/* ===== STATS OVERLAY ===== */
+.statsOverlay {
+  background: rgba(30, 20, 60, 0.92);
+  border-top: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+.statItem {
+  background-color: rgba(47, 61, 191, 0.7);
+  backdrop-filter: blur(4px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 12px 0;
+  flex: 1;
+}
+
+.statNumber {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== INDICATORS ===== */
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none;
+  transition: opacity 0.3s ease;
+}
+
+.indicatorActive {
+  opacity: 1;
+}
+
+.indicatorInactive {
+  opacity: 0.5;
+}
+
+/* ===== PREV / NEXT CONTROLS ===== */
+.carouselPrev,
+.carouselNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+}
+
+.carouselPrev {
+  left: 12px;
+}
+
+.carouselNext {
+  right: 12px;
+  left: auto;
+}
+
+/* ===================================
+   MEDIA QUERIES
+=================================== */
+
+/* Tablet — 768px నుండి 1024px */
+@media (max-width: 1024px) {
+  .heading {
+    font-size: clamp(24px, 3.5vw, 40px);
+  }
+
+  .description {
+    font-size: 17px;
+  }
+
+  .heroImage {
+    max-height: 280px;
+  }
+
+  .statNumber {
+    font-size: 18px;
+  }
+
+  .bubble1 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .bubble2 {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Mobile — 768px కంటే తక్కువ */
+@media (max-width: 768px) {
+  .slideInner {
+    padding: 20px 16px;
+    flex-direction: column;
+  }
+
+  .heading {
+    font-size: clamp(22px, 6vw, 32px);
+    text-align: center;
+  }
+
+  .description {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .heroImage {
+    max-height: 220px;
+    margin-top: 16px;
+  }
+
+  .statNumber {
+    font-size: 16px;
+  }
+
+  .statLabel {
+    font-size: 11px;
+  }
+
+  .bubble1,
+  .bubble2,
+  .bubble3,
+  .bubble4 {
+    display: none; /* mobile లో bubbles hide */
+  }
+
+  .carouselPrev,
+  .carouselNext {
+    width: 36px;
+    height: 36px;
+  }
+.gap3{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+}
+
+/* Small Mobile — 480px కంటే తక్కువ */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .heroImage {
+    max-height: 180px;
+  }
+}

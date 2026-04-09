@@ -1,7 +1,8 @@
-"use client";  // keep this only for scroll effect
+"use client"; // keep this only for scroll effect
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { link } from "fs/promises";
 
 interface NavLink {
   id: number;
@@ -33,6 +34,20 @@ export default function Navbar({ data }: { data: NavbarData }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const normalizeUrl = (url: string) => {
+    if (!url) return "/";
+
+    const clean = url.trim().toLowerCase();
+
+    const routeMap: any = {
+      "/home-page": "/",
+      "/about-us": "/about",
+      "/contact-us": "/contact",
+    };
+
+    return routeMap[clean] || clean;
+  };
+
   if (!data) return null;
 
   return (
@@ -46,7 +61,7 @@ export default function Navbar({ data }: { data: NavbarData }) {
           padding: "0 clamp(16px, 4vw, 50px)",
           maxWidth: "1920px",
           margin: "0 auto",
-          backgroundColor: "#e5e7eb"
+          backgroundColor: "#e5e7eb",
         }}
       >
         {/* Logo */}
@@ -55,7 +70,7 @@ export default function Navbar({ data }: { data: NavbarData }) {
             <img
               src={`${STRAPI_URL}${data.logo.url}`}
               alt={data.logo.alternativeText || "Logo"}
-              style={{ width: "150px", height: "40px", objectFit: "contain" }}
+              style={{ width: "150px", height: "70px", objectFit: "contain" }}
             />
           )}
         </Link>
@@ -75,31 +90,37 @@ export default function Navbar({ data }: { data: NavbarData }) {
 
         {/* Nav Links */}
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto align-items-center" style={{ gap: "8px" }}>
-            {data.nav_links.map((link) => (
-              <li className="nav-item" key={link.id}>
-                {link.isButton ? (
-                  <Link
-                    href={link.url}
-                    className="btn btn-primary rounded-pill"
-                    style={{ padding: "8px 24px" }}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <Link
-                    href={link.url}
-                    className="nav-link"
-                    style={{ padding: "8px 16px" }}
-                  >
-                    {link.label}
-                  </Link>
-                )}
-              </li>
-            ))}
+          <ul
+            className="navbar-nav ms-auto align-items-center"
+            style={{ gap: "8px" }}
+          >
+            {data.nav_links?.map((link) => {
+              console.log("URL:", link.url);
+              console.log("Normalized:", normalizeUrl(link.url));
+
+              return (
+                <li className="nav-item" key={link.id}>
+                  {link.isButton ? (
+                    <Link
+                      href={link.url ? normalizeUrl(link.url) : "#"}
+                      className="btn rounded-pill text-white px-4 py-2"
+                      style={{
+          background: "linear-gradient(135deg, #5C44D8, #a855f7)",
+                        border: "none",
+                      }}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <Link href={normalizeUrl(link.url)} className="nav-link">
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
-
       </div>
     </nav>
   );

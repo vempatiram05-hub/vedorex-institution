@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import styles from "./Heroslider.module.css";
 
 const STRAPI_URL = "http://localhost:1337";
 
@@ -33,22 +34,26 @@ interface HeroSliderData {
 }
 
 export default function HeroSlider({ data }: { data: HeroSliderData }) {
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       const interval = setInterval(() => {
         if ((window as any).bootstrap) {
           const carouselEl = document.getElementById("heroCarousel");
           if (carouselEl) {
-            const existing = (window as any).bootstrap.Carousel.getInstance(carouselEl);
+            const existing = (window as any).bootstrap.Carousel.getInstance(
+              carouselEl,
+            );
             if (existing) existing.dispose();
 
-            const carousel = new (window as any).bootstrap.Carousel(carouselEl, {
-              interval: 4000,
-              ride: "carousel",
-              wrap: true,
-              pause: "hover",
-            });
+            const carousel = new (window as any).bootstrap.Carousel(
+              carouselEl,
+              {
+                interval: 4000,
+                ride: "carousel",
+                wrap: true,
+                pause: "hover",
+              },
+            );
 
             carouselEl.addEventListener("mouseenter", () => carousel.pause());
             carouselEl.addEventListener("mouseleave", () => carousel.cycle());
@@ -90,12 +95,12 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
                 className={index === 0 ? "active" : ""}
                 aria-current={index === 0 ? "true" : undefined}
                 style={{
-                  width: "12px",          // ✅ equal width & height = circle
+                  width: "12px", // ✅ equal width & height = circle
                   height: "12px",
-                  borderRadius: "50%",    // ✅ makes it round
+                  borderRadius: "50%", // ✅ makes it round
                   backgroundColor: "#fff",
                   border: "none",
-                  opacity: index === 0 ? "1" : "0.5",  // active = full, inactive = faded
+                  opacity: index === 0 ? "1" : "0.5", // active = full, inactive = faded
                   transition: "opacity 0.3s ease",
                 }}
               />
@@ -119,42 +124,67 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
                   }}
                 >
                   {/* Decorative bubbles */}
-                  <div style={{
-                    position: "absolute", borderRadius: "50%",
-                    width: 320, height: 320,
-                    background: "rgba(92, 68, 216, 0.12)",
-                    top: "-80px", left: "-60px",
-                    pointerEvents: "none",
-                  }} />
-                  <div style={{
-                    position: "absolute", borderRadius: "50%",
-                    width: 200, height: 200,
-                    background: "rgba(168, 85, 247, 0.1)",
-                    top: "20px", left: "180px",
-                    pointerEvents: "none",
-                  }} />
-                  <div style={{
-                    position: "absolute", borderRadius: "50%",
-                    width: 150, height: 150,
-                    background: "rgba(92, 68, 216, 0.08)",
-                    bottom: "-40px", left: "30%",
-                    pointerEvents: "none",
-                  }} />
-                  <div style={{
-                    position: "absolute", borderRadius: "50%",
-                    width: 250, height: 250,
-                    background: "rgba(168, 85, 247, 0.07)",
-                    bottom: "-60px", right: "-40px",
-                    pointerEvents: "none",
-                  }} />
+                  <div
+                    style={{
+                      position: "absolute",
+                      borderRadius: "50%",
+                      width: 320,
+                      height: 320,
+                      background: "rgba(92, 68, 216, 0.12)",
+                      top: "-80px",
+                      left: "-60px",
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      borderRadius: "50%",
+                      width: 200,
+                      height: 200,
+                      background: "rgba(168, 85, 247, 0.1)",
+                      top: "20px",
+                      left: "180px",
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      borderRadius: "50%",
+                      width: 150,
+                      height: 150,
+                      background: "rgba(92, 68, 216, 0.08)",
+                      bottom: "-40px",
+                      left: "30%",
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      borderRadius: "50%",
+                      width: 250,
+                      height: 250,
+                      background: "rgba(168, 85, 247, 0.07)",
+                      bottom: "-60px",
+                      right: "-40px",
+                      pointerEvents: "none",
+                    }}
+                  />
 
-                  <div className="row align-items-center w-100 g-3" style={{ position: "relative", zIndex: 1 }}>
-
+                  <div
+                    className="row align-items-center w-100 g-3"
+                    style={{ position: "relative", zIndex: 1 }}
+                  >
                     {/* Left Content */}
                     <div className="col-lg-6">
                       <h1
                         className="fw-bold mb-3"
-                        style={{ fontSize: "clamp(28px, 4vw, 52px)", lineHeight: "1.2" }}
+                        style={{
+                          fontSize: "clamp(28px, 4vw, 52px)",
+                          lineHeight: "1.2",
+                        }}
                       >
                         {slide.title}{" "}
                         <span style={{ color: "#5C44D8" }}>
@@ -163,24 +193,38 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
                       </h1>
                       <p
                         className="text-secondary mb-4"
-                        style={{ fontSize: "16px", lineHeight: "1.7" }}
+                        style={{
+                          fontSize: "20px",
+                          lineHeight: "1.7",
+                          color: "#1F2937",
+                        }}
                       >
                         {slide.description}
                       </p>
-                      <div className="d-flex gap-3 flex-wrap">
+                      <div className="d-flex gap-3 flex-wrap ">
                         <Link
-                          href={slide.primary_btn_url}
-                          className="btn btn-primary rounded-pill px-4 py-2"
-                          style={{ backgroundColor: "#5C44D8", border: "none" }}
+                          href={slide.primary_btn_url || "#"}
+                          className="btn  rounded-pill px-4 py-2"
+                          style={{ background: "linear-gradient(135deg, #5C44D8, #a855f7)  ", color: "#fff", alignItems: "center", width: "157px", height: "48px", display: "flex", justifyContent: "center" }}
                         >
                           {slide.primary_btn_label}
                         </Link>
                         <Link
-                          href={slide.secondary_btn_url}
-                          className="btn btn-outline-secondary rounded-pill px-4 py-2"
+                          href={slide.secondary_btn_url || "#"}
+                          className="btn rounded-pill px-4 py-2"
+                          style={{
+                            border: "2px solid #9333EA",
+                            color: "#000",
+                            backgroundColor: "transparent",
+                            alignItems: "center",
+                            width: "211px",
+                             display: "flex",
+                             height: "48px",
+                            justifyContent: "center",
+                          }}
                         >
                           {slide.secondary_btn_label}
-                        </Link>
+                        </Link>{" "}
                       </div>
                     </div>
 
@@ -214,15 +258,24 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
                                   key={stat.id}
                                   className="flex-fill text-center py-3"
                                   style={{
-                                    backgroundColor: "rgba(30, 20, 80, 0.75)",
-                                    backdropFilter: "blur(4px)",
-                                    borderRight: "1px solid rgba(255,255,255,0.1)",
+  backgroundColor: "rgba(23, 19, 191, 0.7)"
+                                    // backdropFilter: "blur(4px)",
+                                    // borderRight:
+                                      // "1px solid rgba(255,255,255,0.1)",
                                   }}
                                 >
-                                  <div className="fw-bold text-white" style={{ fontSize: "22px" }}>
+                                  <div
+                                    className="fw-bold text-white"
+                                    style={{ fontSize: "22px" }}
+                                  >
                                     {stat.number}
                                   </div>
-                                  <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.8)" }}>
+                                  <div
+                                    style={{
+                                      fontSize: "12px",
+                                      color: "rgba(255,255,255,0.8)",
+                                    }}
+                                  >
                                     {stat.label}
                                   </div>
                                 </div>
@@ -232,7 +285,6 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
                         </div>
                       )}
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -240,7 +292,11 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
           </div>
 
           {/* Controls */}
-          <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="prev"
             style={{
               position: "absolute",
               top: "50%",
@@ -250,11 +306,15 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
               height: "48px",
               backgroundColor: "rgba(0,0,0,0.4)",
               borderRadius: "50%",
-
-            }}>
+            }}
+          >
             <span className="carousel-control-prev-icon" />
           </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="next"
             style={{
               position: "absolute",
               top: "50%",
@@ -265,10 +325,10 @@ export default function HeroSlider({ data }: { data: HeroSliderData }) {
               height: "48px",
               backgroundColor: "rgba(0,0,0,0.4)",
               borderRadius: "50%",
-            }}>
+            }}
+          >
             <span className="carousel-control-next-icon" />
           </button>
-
         </div>
       </div>
     </section>

@@ -1,0 +1,120 @@
+.statsSection {
+  background: linear-gradient(135deg, #1E3A8A 0%, #2952e3 100%);
+}
+
+/* Top Tag */
+.tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Heading */
+.heading {
+  font-family: "Manrope", sans-serif;
+  font-size: 2.2rem;
+  color: white;
+}
+
+/* Card */
+.cardBox {
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 20px;
+  height: 100%;
+}
+
+/* Icon Box */
+.iconBox {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Number */
+.statNumber {
+  font-family: "Manrope", sans-serif;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Label */
+.statLabel {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: bold;
+}
+
+/* Description */
+.statDesc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Divider */
+.divider {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Bottom Numbers */
+.bottomNumber {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.6rem;
+  color: white;
+  font-weight: bold;
+}
+
+.bottomLabel {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .statNumber {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile (375px) */
+@media (max-width: 375px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .statNumber {
+    font-size: 1.4rem;
+  }
+
+  .bottomNumber {
+    font-size: 1.3rem;
+  }
+}
+
+/* Small Mobile (320px) */
+@media (max-width: 320px) {
+  .heading {
+    font-size: 1.3rem;
+  }
+
+  .statDesc {
+    font-size: 0.75rem;
+  }
+
+  .bottomLabel {
+    font-size: 0.75rem;
+  }
+}

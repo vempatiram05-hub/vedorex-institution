@@ -1,0 +1,300 @@
+/* HERO */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background-size: cover;
+  background-position: center;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 40px;
+  color: white;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 91, 210, 0.55); /* blue overlay */
+
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  width: 100%;
+}
+
+.heroTitle {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+  color: white;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #a855f7;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.heroDescription {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 32px;
+  line-height: 1.7;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 32px;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats strong {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+}
+
+.stats span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ctaBtn {
+  background: transparent;
+  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  padding: 10px 28px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.ctaBtn:hover {
+  background: white;
+  color: #1a1a2e;
+  border-color: white;
+}
+
+.coursesSection {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  min-height: 600px;
+  padding: 0px 50px  ;
+}
+
+.sidebar {
+  background: #f8f9fa;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+}
+
+.card {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.card:hover {
+  background: #f0f0f0;
+}
+
+.card.active {
+  background: #fff;
+  border-left: 4px solid #6c63ff;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.cardMeta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.category {
+  font-size: 0.75rem;
+  color: #6c63ff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge {
+  background: #6c63ff;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.detail {
+  padding: 40px;
+}
+
+.detailHeader {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.detail h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.detail p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.detailMeta {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.detailMeta span {
+  background: #f0f0f0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.topics {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.topics li {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.enrollBtn {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.enrollBtn:hover {
+  background: #5a52d5;
+}
+/* LEARNING PATH */
+.learningPath {
+  padding: 32px 50px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.learningPath h2 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.routepath {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.routeStep {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.stepTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #333;
+  border: 1.5px solid #ccc;
+  background: white;
+  transition: all 0.2s;
+}
+
+
+
+/* Dot before each step title */
+.routeStep:first-child .stepTitle::before {
+  content: "•";
+  font-size: 1.2rem;
+  color: white;
+}
+
+.stepTitle:hover {
+  border-color: #6c63ff;
+  color: #ffffff;
+  background-color: #6c63ff;
+
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: #ccc;
+  font-size: 0.75rem;
+  /* dashed line effect */
+  letter-spacing: 2px;
+}

@@ -53,6 +53,8 @@ export default function Testimonials({ data }: { data: TestimonialsData }) {
   return (
     <section>
       <div
+        className="rounded-4 p-4"
+
         style={{
           maxWidth: "1920px",
           margin: "0 auto",
@@ -61,7 +63,8 @@ export default function Testimonials({ data }: { data: TestimonialsData }) {
           boxSizing: "border-box",
           backgroundColor: "#d1d5db",
           padding: "20px clamp(16px, 4vw, 50px)",
-        }}
+          
+         }}
       >
         {/* Title */}
         <div className="mb-5">
